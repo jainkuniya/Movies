@@ -12,7 +12,7 @@ class MovieList extends Component {
 	}
 
 	renderRow(movie) {
-		return (<MovieList
+		return (<MovieItem
 			movie={movie}
 		/>);
 	}
