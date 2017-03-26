@@ -16,9 +16,9 @@ const moreStyles = {
 class MovieItem extends Component {
 
   renderDetails() {
-    const { movie, selectedMovieTitle } = this.props;
+    const { movie, expanded } = this.props;
 
-    if (movie.Title === selectedMovieTitle) {
+    if (expanded) {
       return (
         <Text>{movie.Title}</Text>
       );
@@ -48,8 +48,10 @@ class MovieItem extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { selectedMovieTitle: state.selectedMovieTitle };
+const mapStateToProps = (state, ownProps) => {
+  const expanded = state.selectedMovieTitle === ownProps.movie.Title;
+
+  return { expanded };
 };
 
 export default connect(mapStateToProps, actions)(MovieItem);
