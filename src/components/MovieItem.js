@@ -1,7 +1,11 @@
 //Import libraries
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
-import { connect } from 'react-redux';
+import {
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  LayoutAnimation
+} from 'react-native';import { connect } from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
 
@@ -14,6 +18,10 @@ const moreStyles = {
 
 //create class component
 class MovieItem extends Component {
+
+  componentWillUpdate() {
+    LayoutAnimation.spring();
+  }
 
   renderDetails() {
     const { movie, expanded } = this.props;
