@@ -1,4 +1,8 @@
-export default () => {
-	//returning null as in inilial state we don't know which movie is selected
-  	return null;
+export default (state = null, action) => {
+  switch (action.type) {
+    case 'select_movie':
+      return action.payload;
+    default:
+      return state;
+  }
 };
